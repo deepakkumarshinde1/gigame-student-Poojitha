@@ -1,12 +1,12 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getUsers } from "../redux/service/users.service";
+import { getUsers } from "../redux/users.slice";
 
 function Users() {
   let dispatch = useDispatch();
   let { list, loading } = useSelector((state) => state.users);
   useEffect(() => {
-    dispatch(getUsers());
+    dispatch(getUsers(10));
   }, []);
   return (
     <div>
